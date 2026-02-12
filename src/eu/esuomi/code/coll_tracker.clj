@@ -12,7 +12,6 @@
   ILookup
   (valAt [_ k]
     (let [p (conj path k)]
-      (println "valAt" p _ k)
       (swap! accessed conj p)
       (wrap (get value k) accessed p)))
 
