@@ -2,6 +2,9 @@
 
 Track which keys and indices of a deep data structures are accessed.
 
+[![main / Deploy](https://github.com/esuomi/coll-tracker/actions/workflows/deploy.yaml/badge.svg)](https://github.com/esuomi/coll-tracker/actions/workflows/deploy.yaml)
+[![Clojars Project](https://img.shields.io/clojars/v/eu.esuomi.code/coll-tracker.svg)](https://clojars.org/eu.esuomi.code/coll-tracker)
+
 ## Usage
 
 ```clojure
