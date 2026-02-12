@@ -1,0 +1,26 @@
+name: Lint Clojure Project
+description: Run Clojure linters (clj-kondo, cljstyle)
+
+inputs:
+  run-kondo:
+    description: 'Run clj-kondo linting'
+    required: false
+    default: 'true'
+
+  run-cljstyle:
+    description: 'Run cljstyle formatting check'
+    required: false
+    default: 'true'
+
+runs:
+  using: composite
+  steps:
+    - name: Run clj-kondo
+      if: ${{ inputs.run-kondo == 'true' }}
+      run: clj-kondo --lint src test --fail-level error
+      shell: bash
+
+    - name: Run cljstyle
+      if: ${{ inputs.run-cljstyle == 'true' }}
+      run: cljstyle check
+      shell: bash

@@ -1,0 +1,28 @@
+name: main / Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  clojure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./.github/actions/setup-clojure-project
+        with:
+          fetch-depth: 0
+
+      # eventually this will have something better, for now this is fine
+      - name: Detect revision increment adjustment
+        run: echo "REVISIONS_ADJUSTMENT=patch" >> $GITHUB_ENV
+
+      - name: Deploy to Clojars
+        run: lein deploy clojars
+        env:
+          CLOJARS_USERNAME: ${{ secrets.CLOJARS_USERNAME }}
+          CLOJARS_TOKEN: ${{ secrets.CLOJARS_TOKEN }}

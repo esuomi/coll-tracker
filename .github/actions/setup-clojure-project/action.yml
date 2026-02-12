@@ -1,0 +1,28 @@
+name: Setup Clojure Project
+description: Common setup for Clojure CI workflows (Java, Leiningen, tooling)
+
+inputs:
+  fetch-depth:
+    description: 'Git fetch depth (0 for full history)'
+    required: false
+    default: '1'
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: ${{ inputs.fetch-depth }}
+
+    - name: Prepare Java
+      uses: actions/setup-java@v4
+      with:
+        distribution: temurin
+        java-version-file: .java-version
+        cache: maven
+
+    - name: Install Clojure tools
+      uses: DeLaGuardo/setup-clojure@13.4
+      with:
+        lein: latest

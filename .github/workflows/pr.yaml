@@ -1,0 +1,22 @@
+name: PR / Verify
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+env:
+  LEIN_USE_BOOTCLASSPATH: no
+
+jobs:
+  clojure:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: ./.github/actions/setup-clojure-project
+
+      - name: Run Unit tests
+        run: lein test
