@@ -1,5 +1,5 @@
 (ns eu.esuomi.code.coll-tracker
-  (:import (clojure.lang Associative ILookup ISeq Indexed Seqable)))
+  (:import (clojure.lang ILookup Indexed Seqable)))
 
 (declare wrap)
 

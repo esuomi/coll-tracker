@@ -28,25 +28,25 @@ Track which keys and indices of a deep data structures are accessed.
 (println (get tracked :simple)
          (some-> tracked :nested :value)
          (get-in tracked [:nested :deeply :final-value])
-         ((juxt first second) (-> tracked :sequences (nth 2)))) ; => 1
+         ((juxt first second) (-> tracked :sequences (nth 2))))
 ; => 1 2 3 [6 7]
 
 ; see which paths were accessed
 (println (sort @tracker))
-; => ([:nested] [:sequenced] [:simple] [:nested :deeply] [:nested :value] [:nested :deeply :final-value])
+; => ([:nested] [:sequences] [:simple] [:nested :deeply] [:nested :value] [:sequences 2] [:nested :deeply :final-value])
 
 ; Note! Accessing the original data does not impact the tracker
 (println (get data :another)
+         (-> data :sequences (nth 1) second)
          (get-in data [:nested :value]))
-; => 4 2
-
+; => 4 :lit 2
 
 ; reprint to see that nothing changed
 (println (sort @tracker))
-; => ([:nested] [:sequenced] [:simple] [:nested :deeply] [:nested :value] [:nested :deeply :final-value])
+; => ([:nested] [:sequences] [:simple] [:nested :deeply] [:nested :value] [:sequences 2] [:nested :deeply :final-value])
 ```
 
-The wrapper supports Clojure's `Associative`, `ILookup`, `ISeq`, `Indexed` and `Seqable` interfaces meaning maps, 
+The wrapper supports Clojure's `ILookup`, `Indexed` and `Seqable` interfaces meaning maps, 
 vectors, lists, sets are all supported.
 
 In case of sets a special key is used to indicate access:
