@@ -21,3 +21,5 @@ runs:
       uses: DeLaGuardo/setup-clojure@13.4
       with:
         lein: latest
+        clj-kondo: latest
+        cljstyle: latest
