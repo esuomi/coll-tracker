@@ -14,7 +14,8 @@
                                     :username      :env/CLOJARS_USERNAME
                                     :password      :env/CLOJARS_TOKEN}]]
 
-  :plugins [[fi.polycode/lein-git-revisions "1.1.2"]]
+  :plugins [[fi.polycode/lein-git-revisions "1.1.2"]
+            [lein-pprint "1.3.2"]]
 
   :global-vars {*warn-on-reflection* true}
 
