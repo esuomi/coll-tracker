@@ -26,9 +26,13 @@ jobs:
             *) echo "Invalid adjustment"; exit 1 ;;
           esac
 
-      - uses: ./.github/actions/setup-clojure-project
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Setup project
+        uses: ./.github/actions/setup-clojure-project
 
       - name: Inject revision increment adjustment
         run: echo "REVISIONS_ADJUSTMENT=${{ github.event.inputs.adjustment }}" >> $GITHUB_ENV

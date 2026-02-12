@@ -13,9 +13,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/actions/setup-clojure-project
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+
+      - name: Setup project
+        uses: ./.github/actions/setup-clojure-project
 
       # eventually this will have something better, for now this is fine
       - name: Detect revision increment adjustment

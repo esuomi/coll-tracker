@@ -16,6 +16,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: ./.github/actions/setup-clojure-project
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: ./.github/actions/lint-clojure-project
+      - name: Setup project
+        uses: ./.github/actions/setup-clojure-project
+
+      - name: Run linters
+        uses: ./.github/actions/lint-clojure-project
