@@ -8,6 +8,12 @@
 
   :dependencies [[org.clojure/clojure "1.12.2"]]
 
+
+  :deploy-repositories [["clojars" {:sign-releases false
+                                    :url           "https://clojars.org/repo"
+                                    :username      :env/CLOJARS_USERNAME
+                                    :password      :env/CLOJARS_TOKEN}]]
+
   :plugins [[fi.polycode/lein-git-revisions "1.1.2"]]
 
   :global-vars {*warn-on-reflection* true}
