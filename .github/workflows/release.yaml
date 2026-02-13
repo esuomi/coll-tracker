@@ -42,7 +42,7 @@ jobs:
         run: echo "version=$(lein pprint :version | tr -d '\"')" >> $GITHUB_OUTPUT
 
       - name: Create tag
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             github.rest.git.createRef({
