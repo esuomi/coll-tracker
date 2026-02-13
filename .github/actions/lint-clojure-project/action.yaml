@@ -17,7 +17,7 @@ runs:
   steps:
     - name: Run clj-kondo
       if: ${{ inputs.run-kondo == 'true' }}
-      run: clj-kondo --lint src test --fail-level error
+      run: clj-kondo --lint src test
       shell: bash
 
     - name: Run cljstyle
