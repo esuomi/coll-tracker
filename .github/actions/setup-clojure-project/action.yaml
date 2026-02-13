@@ -18,7 +18,7 @@ runs:
           ${{ runner.os }}-lein-
 
     - name: Install Clojure tools
-      uses: DeLaGuardo/setup-clojure@13.4
+      uses: DeLaGuardo/setup-clojure@13.5
       with:
         lein: latest
         clj-kondo: latest
