@@ -6,7 +6,7 @@
 
   :scm {:name "git" :url "https://github.com/esuomi/coll-tracker"}
 
-  :dependencies [[org.clojure/clojure "1.12.2"]]
+  :dependencies [[org.clojure/clojure "1.12.4"]]
 
 
   :deploy-repositories [["clojars" {:sign-releases false
