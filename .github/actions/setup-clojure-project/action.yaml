@@ -22,4 +22,6 @@ runs:
       with:
         lein: latest
         clj-kondo: latest
-        cljstyle: latest
+        # disabled on purpose until cljstyle supports vertical alignment for maps
+        # see https://github.com/greglook/cljstyle/issues/47
+        #cljstyle: latest

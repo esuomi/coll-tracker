@@ -20,7 +20,7 @@ runs:
       run: clj-kondo --lint src test
       shell: bash
 
-    - name: Run cljstyle
-      if: ${{ inputs.run-cljstyle == 'true' }}
-      run: cljstyle check
-      shell: bash
+    #- name: Run cljstyle
+    #  if: ${{ inputs.run-cljstyle == 'true' }}
+    #  run: cljstyle check
+    #  shell: bash
